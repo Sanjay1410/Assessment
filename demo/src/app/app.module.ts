@@ -9,13 +9,15 @@ import { UserFieldsWindowComponent } from './user-fields-window/user-fields-wind
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewUserDetailsComponent } from './view-user-details/view-user-details.component';
 import { UserComponent } from './user/user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFieldsWindowComponent,
     ViewUserDetailsComponent,
-    UserComponent
+    UserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

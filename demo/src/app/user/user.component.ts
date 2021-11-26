@@ -58,10 +58,13 @@ export class UserComponent implements OnInit {
 		})
 	}
 	public deleteUser(userData) {
+		let localStorageData = JSON.parse(localStorage.getItem('userDetails'))
 		let userId = userData['id']
 		let index = this.userDetailsArr.findIndex(ele => ele['id'] == userId)
 		if (index > -1) {
 			this.userDetailsArr.splice(index, 1)
+			localStorageData.splice(index,1)
+			localStorage.setItem('userDetails', JSON.stringify(localStorageData));
 		}
 	}
 

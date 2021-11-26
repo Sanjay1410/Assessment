@@ -23,7 +23,7 @@
 
     <button *ngIf="!viewUser" [disabled]="userDetailsArr.length == 0" class="submitBtn" mat-raised-button color="primary"
         (click)="sendDataToNextPage()">Submit</button>
-    <button *ngIf="userDetailsArr.length == 0" mat-button class="addBtn" (click)="addUser()">Add</button>
+    <button *ngIf="userDetailsArr.length == 0 && !viewUser" mat-button class="addBtn" (click)="addUser()">Add</button>
 
     <button *ngIf="viewUser" mat-button color="primary"  (click)="gotoPreviosPage()">Back</button>
 </div>
