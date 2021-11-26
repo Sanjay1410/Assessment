@@ -1,0 +1,48 @@
+<section>
+    <h2 mat-dialog-title>User Details</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-dialog-content>
+            <div>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Name" formControlName="name">
+                        <mat-error *ngIf="isFieldInvalid('name')">Please field this field</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="email" matInput placeholder="Email" formControlName="email">
+                        <mat-error *ngIf="isFieldInvalid('email')">{{ form.get('email').hasError('email') ? 'Not a valid email' : 'Please field this field'}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="password" matInput placeholder="Password" formControlName="password">
+                        <mat-error *ngIf="isFieldInvalid('password')">{{'Please field this field'}}</mat-error>
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <mat-form-field>
+                        <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
+                        <mat-error *ngIf="!passwordValidate">
+                            Passwords do not match
+                          </mat-error>
+                    </mat-form-field>
+                </p>
+    
+                <p>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Phone Number" formControlName="phoneNumber">
+                        <mat-error *ngIf="form.get('phoneNumber').hasError('required')">{{'Please field this field'}}</mat-error>
+                        <mat-error *ngIf="form.get('phoneNumber').hasError('pattern')">{{'Please, Enter 10 digit Mobile Number.'}}</mat-error>
+                    </mat-form-field>
+                </p>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button type="submit" mat-button>Submit</button>
+        </mat-dialog-actions>
+    </form>
+</section>

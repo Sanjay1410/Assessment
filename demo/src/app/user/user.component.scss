@@ -1,0 +1,25 @@
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  th, td {
+    width: 150px;
+    background-color: #96D4D4;
+    padding: 2px;
+  }
+
+  .addBtn{
+      cursor: pointer;
+      color: white;
+      width:150px;
+      margin-left:40%;
+      margin-right:50%;
+      background-color: rgb(66, 172, 66);
+  }
+
+  .submitBtn{
+    width:20%;
+    margin-left:40%;
+    margin-right:20%;
+    margin-top: 5%;
+  }
