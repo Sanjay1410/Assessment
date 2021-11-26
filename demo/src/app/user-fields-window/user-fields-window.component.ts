@@ -10,8 +10,6 @@ import { ConfirmValidator } from '../confirm.validator';
 })
 export class UserFieldsWindowComponent implements OnInit {
 
-	passwordValidate: boolean = false;
-
 	form: FormGroup = this.formBuilder.group({
 		name: new FormControl('', Validators.required),
 		email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,7 +37,6 @@ export class UserFieldsWindowComponent implements OnInit {
 
 	submit() {
 		if (this.form.valid) {
-			console.log(this.form.value)
 			this.dialog.close({data: this.form.value}) // dialog will close and sending data to parent
 		}
 	}

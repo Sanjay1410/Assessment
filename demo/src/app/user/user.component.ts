@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { DataService } from '../service/data.service';
 import { UserFieldsWindowComponent } from '../user-fields-window/user-fields-window.component';
 
 @Component({
@@ -12,14 +11,11 @@ import { UserFieldsWindowComponent } from '../user-fields-window/user-fields-win
 export class UserComponent implements OnInit {
 
 	@Input() viewUser: boolean
-	userDetailsArr = [
-		{ id: '1', name: 'Sanjay', email: 'sanjayjagad9@gmail.com', password: '123123', phoneNumber: '0000' }
-	]
+	userDetailsArr = []
 
 	constructor(
 		public dialog: MatDialog,
-		private router: Router,
-		private dataTransfer: DataService
+		private router: Router
 	) {
 	}
 	ngOnInit() {
@@ -31,7 +27,8 @@ export class UserComponent implements OnInit {
 	addUser() {
 		const dialogObj = this.dialog.open(UserFieldsWindowComponent, {
 			width: '700px',
-			data: { name: '', email: '', phoneNumber: '', password: '', confirmPassword: '' }
+			data: { name: '', email: '', phoneNumber: '', password: '', confirmPassword: '' },
+			disableClose: true
 		})
 
 		dialogObj.afterClosed().subscribe((result) => {
@@ -46,7 +43,8 @@ export class UserComponent implements OnInit {
 		let id = userData['id']
 		const dialogObj = this.dialog.open(UserFieldsWindowComponent, {
 			width: '700px',
-			data: userData
+			data: userData,
+			disableClose: true
 		})
 
 		dialogObj.afterClosed().subscribe((result) => {
@@ -69,10 +67,7 @@ export class UserComponent implements OnInit {
 
 	sendDataToNextPage() {
 		localStorage.setItem('userDetails', JSON.stringify(this.userDetailsArr));
-		this.dataTransfer.sendData(this.userDetailsArr)
 		window.open('viewUser','_blank')
-		// this.router.navigate(['']).then((res)=>{
-		// })
 	}
 
 	gotoPreviosPage() {

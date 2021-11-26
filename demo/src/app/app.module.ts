@@ -9,7 +9,6 @@ import { UserFieldsWindowComponent } from './user-fields-window/user-fields-wind
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewUserDetailsComponent } from './view-user-details/view-user-details.component';
 import { UserComponent } from './user/user.component';
-import { DataService } from './service/data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,7 @@ import { DataService } from './service/data.service';
     MatInputModule,
     ReactiveFormsModule
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [UserFieldsWindowComponent],
   exports: [UserComponent]

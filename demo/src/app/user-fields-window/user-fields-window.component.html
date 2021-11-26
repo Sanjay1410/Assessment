@@ -12,7 +12,8 @@
                 <p>
                     <mat-form-field>
                         <input type="email" matInput placeholder="Email" formControlName="email">
-                        <mat-error *ngIf="isFieldInvalid('email')">{{ form.get('email').hasError('email') ? 'Not a valid email' : 'Please field this field'}}</mat-error>
+                        <mat-error *ngIf="isFieldInvalid('email')">{{ form.get('email').hasError('email') ? 'Not a valid
+                            email' : 'Please field this field'}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
@@ -21,21 +22,22 @@
                         <mat-error *ngIf="isFieldInvalid('password')">{{'Please field this field'}}</mat-error>
                     </mat-form-field>
                 </p>
-                
+
                 <p>
                     <mat-form-field>
-                        <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
-                        <mat-error *ngIf="!passwordValidate">
-                            Passwords do not match
-                          </mat-error>
+                        <input type="password" matInput placeholder="Confirm Password"
+                            formControlName="confirmPassword">
+                        <mat-error> Passwords do not match </mat-error>
                     </mat-form-field>
                 </p>
-    
+
                 <p>
                     <mat-form-field>
                         <input type="number" matInput placeholder="Phone Number" formControlName="phoneNumber">
-                        <mat-error *ngIf="form.get('phoneNumber').hasError('required')">{{'Please field this field'}}</mat-error>
-                        <mat-error *ngIf="form.get('phoneNumber').hasError('pattern')">{{'Please, Enter 10 digit Mobile Number.'}}</mat-error>
+                        <mat-error *ngIf="form.get('phoneNumber').hasError('required')">{{'Please field this field'}}
+                        </mat-error>
+                        <mat-error *ngIf="form.get('phoneNumber').hasError('pattern')">{{'Please, Enter 10 digit Mobile
+                            Number.'}}</mat-error>
                     </mat-form-field>
                 </p>
             </div>
